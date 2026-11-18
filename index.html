@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1030">
+<meta name="description" content="Шаг за шагом к мечте — семейный проект: идеи, жизнь в Европе, ресурсы для бизнеса, поддержка.">
+<title>Шаг за шагом к мечте</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <nav class="nav" aria-label="Основная навигация">
+    <button data-go="home" data-i18n="nav_home">Главная</button>
+    <button data-go="academy" data-i18n="nav_academy">Академия</button>
+    <button data-go="nova">NOVA</button>
+    <button data-go="community" data-i18n="nav_community">Сообщество</button>
+    <button data-go="about" data-i18n="nav_about">О проекте</button>
+  </nav>
+  <label class="lang"><span class="sr-only" data-i18n="lang">Язык интерфейса</span>
+    <select id="lang"><option value="ru">RU</option><option value="uk">UA</option><option value="en">EN</option></select>
+  </label>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <h1 data-i18n="title">Шаг за шагом к мечте</h1>
+      <p class="tagline" data-i18n="tagline">Развивайся · Создавай · Живи</p>
+      <blockquote>
+        <p data-i18n="quote">Вчера — история, завтра — загадка, а сегодня — подарок.</p>
+        <footer data-i18n="quote_by">Мастер Угвэй, «Кунг-фу Панда»</footer>
+      </blockquote>
+    </div>
+    <div class="hero-art" role="img" aria-label="Женщина и жёлтый утёнок в очках на фоне моря"></div>
+  </section>
+
+  <section class="cards" aria-label="Разделы">
+    <button class="card" data-go="ideas"><b data-i18n="ideas">Идеи и дело</b><span data-i18n="ideas_s">Создавай своё будущее</span></button>
+    <button class="card" data-go="europe"><b data-i18n="europe">Жизнь в Европе</b><span data-i18n="europe_s">Полезные советы</span></button>
+    <button class="card" data-go="links"><b data-i18n="links">Полезные ссылки</b><span data-i18n="links_s">Проверенные ресурсы</span></button>
+    <button class="card" data-go="laws"><b data-i18n="laws">Законы для бизнеса</b><span data-i18n="laws_s">и самозанятых</span></button>
+    <button class="card" data-go="people"><b data-i18n="people">Свои люди</b><span data-i18n="people_s">Общение и поддержка</span></button>
+    <button class="card" data-go="horoscope"><b data-i18n="horoscope">Гороскоп дня</b><span data-i18n="horoscope_s">Узнай, что готовят звёзды</span></button>
+    <button class="card" data-go="fitness"><b data-i18n="fitness">Фитнес и энергия</b><span data-i18n="fitness_s">Будь в форме</span></button>
+    <button class="card card-tasks" id="open-cabinet"><b data-i18n="tasks">Мои задачи</b><span data-i18n="tasks_s">Планируй и достигай</span></button>
+  </section>
+
+  <section class="panel" id="panel" aria-live="polite" hidden>
+    <h2 id="panel-title"></h2>
+    <p id="panel-text"></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><span data-i18n="family">Семейный проект</span>: Бачурская Юля, Гавриш Владимир</p>
+  <p class="memorial">Виктор Леонидович Бачурский, 1953–2021</p>
+  <p>Mariupol in our hearts</p>
+</footer>
+
+<dialog id="cabinet" aria-labelledby="cab-title">
+  <div class="cab-head">
+    <div><p class="label" data-i18n="cab_eyebrow">Моё пространство</p><h2 id="cab-title" data-i18n="tasks">Мои задачи</h2></div>
+    <button class="close" id="close-cabinet" type="button" aria-label="Закрыть">×</button>
+  </div>
+
+  <div class="cab-grid">
+    <section class="box">
+      <p class="label" data-i18n="focus">Фокус</p>
+      <div class="clock" id="clock" role="timer" aria-live="off">40:00</div>
+      <div class="bar"><i id="bar"></i></div>
+      <p class="hint" id="t-status"></p>
+      <div class="row">
+        <button class="btn" id="t-main" type="button"></button>
+        <button class="btn ghost" id="t-reset" type="button" data-i18n="t_reset">Сбросить</button>
+      </div>
+    </section>
+
+    <section class="box">
+      <p class="label" data-i18n="garden">Мой сад</p>
+      <svg class="plant" id="plant" viewBox="0 0 120 120" role="img" aria-label="Росток">
+        <path d="M60 112V30" class="stem" id="stem"/>
+        <path class="leaf" data-n="1" d="M60 92C42 92 32 82 30 70c16 0 28 6 30 22z"/>
+        <path class="leaf" data-n="2" d="M60 76c18 0 28-10 30-22-16 0-28 6-30 22z"/>
+        <path class="leaf" data-n="3" d="M60 60C44 60 36 52 34 42c14 0 24 6 26 18z"/>
+        <path class="leaf" data-n="4" d="M60 46c14 0 22-8 24-18-12 0-22 5-24 18z"/>
+        <circle class="bud" data-n="5" cx="60" cy="24" r="9"/>
+        <path d="M30 112h60" class="ground"/>
+      </svg>
+      <p class="hint" id="plant-cap"></p>
+    </section>
+  </div>
+
+  <section class="box tasks">
+    <p class="label" data-i18n="daily">Один шаг сегодня</p>
+    <h3 data-i18n="task_title">Что я хочу сделать?</h3>
+    <form id="task-form">
+      <input id="task-input" type="text" maxlength="120" autocomplete="off" data-i18n-ph="placeholder" aria-labelledby="cab-title">
+      <button class="btn" type="submit" data-i18n="add">Добавить</button>
+    </form>
+    <ul id="task-list"></ul>
+  </section>
+</dialog>
+
+<script src="app.js" defer></script>
+</body>
+</html>
